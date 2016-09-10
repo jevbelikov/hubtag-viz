@@ -41,14 +41,14 @@ function HubtagController() {
         return 0;
     }
 }
+
 // returns a nice schedule sorted by week and day
 function tagFilter() {
     return function(items) {
         var keys = Object.keys(items);
 
-        // we want to have things sorted 1,2,3,22 and not 1,2,22,3
         keys.sort(function(val1, val2) {
-            return val1.localeCompare(val2);
+            return parseInt(val1,10) > parseInt(val2,10);
         });
 
         var schedule = [];
